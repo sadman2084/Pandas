@@ -1,0 +1,372 @@
+
+import pandas as pd
+dis={
+"name":['sadman','bushra','kabir'],
+"roll":['10','20','30'],
+"area":['a','b','c']
+}
+s=pd.DataFrame(dis)
+s
+
+example2:
+s.to_csv('friends.csv')
+
+example3:
+s.to_csv('friends_noindex.csv',index=False)
+
+example4:
+s.head(2)
+
+example5:
+s.tail(2)
+
+example6:
+s.describe()
+
+example7:
+#make a "new_file.csv" with new #infos in that new_file
+a=pd.read_csv('new_file.csv')
+a
+
+
+example8:
+#making series
+import pandas as pd
+data=[1,2,3,4]
+series=pd.Series(data,index=['a','b','c','d'])
+print(series)
+
+
+
+example 9:
+import pandas as pd
+import numpy as np
+dis={
+"name":['sadman','bushra','kabir','catto'],
+"roll":['10','20',np.nan,'30'],
+"area":['a',np.nan,'b','c']
+}
+s=pd.DataFrame(dis)
+s
+
+
+exmaple 10:
+import pandas as pd
+import numpy as np
+dis={
+"name":['sadman','bushra','kabir','catto'],
+"roll":['10','20',np.nan,'30'],
+"area":['a',np.nan,'b','c']
+}
+d_filled=s.fillna({'roll':d['roll'].mean(),'area':'unknown'})
+d_filled
+
+
+example 11:
+import pandas as pd
+import numpy as np
+dis={
+"name":['sadman','bushra','sadman','catto'],
+"roll":['10','20',10,'30'],
+"area":['a',b,'b','c']
+}
+s=pd.DataFrame(dis)
+s
+no_duplicates=s.drop_duplicates()
+no_duplicates
+
+missing=s.isnull()
+missing
+
+d_dropped=d.dropna()
+d_dropped
+
+
+
+
+exmaple 12:
+import pandas as pd
+
+df1=pd.DataFrame({
+'id':[1,2,3,4],
+'name':['sadman','bushra','afaf','adaf']
+})
+
+df2=pd.DataFrame({
+'id':[1,2,3,4],
+'roll':[34,4235,2421,124]
+})
+
+merged=pd.merge(df1,df2,on='id')
+merged
+
+
+exmaple 13:
+import pandas as pd
+df1=pd.DataFrame({
+    'id':[1,2,3,4],
+    'name':['sadman','taher','bsf','safaef']
+})
+
+df2=pd.DataFrame({
+    'idol':[1,2,3,4],
+    'roll':[24,343,243,522]
+})
+
+merged=pd.merge(df1,df2,left_on='id',right_on='idol')
+merged
+
+
+example 14:
+
+import pandas as pd
+data={
+    'name':['sadman','bushra','onichan'],
+    'roll':[1,3,2],
+    'area':['none','elephant road','uttara']
+}
+df=pd.DataFrame(data)
+sorting=df.sort_values(by='roll')
+
+example 15:
+import pandas as pd
+data={
+    'name':['sadman','bushra','onichan'],
+    'roll':[1,3,2],
+    'area':['none','elephant road','uttara']
+}
+df=pd.DataFrame(data)
+filtered=df[df['roll']>2]
+print(filtered)
+
+
+example 16:
+import pandas as pd
+data={
+    'catagory':['electronics','clothing','electronics','clothing','groceries'],
+    'sales':[100,150,200,250,400]
+}
+df=pd.DataFrame(data)
+grouped_data=df.groupby('catagory').sum()
+grouped_data
+
+example 17:
+
+import pandas as pd
+
+# Define the data
+data = {
+    'catagory': ['electronics', 'clothing', 'electronics', 'clothing', 'groceries'],
+    'sales': [100, 150, 200, 250, 400]
+}
+df = pd.DataFrame(data)
+
+# Define the sales_range function
+def sales_range(x):
+    return x.max() - x.min()
+
+# Group data and apply the custom aggregation function
+grouped_data = df.groupby('catagory').agg({'sales': sales_range})
+
+print(grouped_data)
+
+
+example 18:
+import matplotlib.pyplot as p
+
+years=[432,5256,32523,622]
+sales=[24,26,27,11]
+
+p.plot(years,sales,marker='o',linestyle='-',color='blue',linewidth=2)
+#marker can be o,s,^,x
+#linestyle can be -,--,:,-.
+
+p.title('abot sales')
+p.xlabel('years')
+p.ylabel('sales')
+
+example 19:
+import matplotlib.pyplot as p
+
+years=[432,5256,32523,622]
+sales=[24,26,27,11]
+
+p.plot(years,sales,color='blue')
+#marker can be o,s,^,x
+#linestyle can be -,--,:,-.
+
+p.title('abot sales')
+p.xlabel('years')
+p.ylabel('sales')
+
+
+example 20:
+
+import matplotlib.pyplot as p
+
+years=[432,5256,32523,622]
+sales=[24,26,27,11]
+
+p.scatter(years,sales,color='blue')
+#marker can be o,s,^,x
+#linestyle can be -,--,:,-.
+
+p.title('abot sales')
+p.xlabel('years')
+p.ylabel('sales')
+
+
+example 21:
+import matplotlib.pyplot as p
+
+years=[432,5256,32523,622]
+sales=[24,26,27,11]
+
+p.plot(years,sales,marker='x',linestyle='-.',color='blue',linewidth=2)
+p.title('teka kamano',fontsize=16,color='darkred')
+p.xlabel('years',fontsize=16)
+p.ylabel('sales',fontsize=16)
+
+
+example 22:
+p.plot(years, sales, color='purple', linewidth=0.5, marker='o', markeredgecolor='black')
+p.title('teka kamano',fontsize=16)
+p.xlabel('years',fontsize=16)
+p.ylabel('sales',fontsize=16)
+
+
+exmaple 23:
+p.bar(years, sales, color='purple', linewidth=0.5, edgecolor='black')
+p.title('teka kamano',fontsize=16)
+p.xlabel('years',fontsize=16)
+p.ylabel('sales',fontsize=16)
+p.grid(True,axis='y',linestyle='--',alpha=0.7)
+
+
+example 24:
+import matplotlib.pyplot as p
+x=[1,2,3,4,5]
+y1=[1,4,9,16,25]
+y2=[1,2,3,4,5]
+
+
+fig,(ax1,ax2)=p.subplots(1,2)
+
+ax1.plot(x,y1,color='blue')
+ax1.set_title("squared graph")
+
+ax2.plot(x,y2,color='green')
+ax2.set_title("linear graph")
+
+
+exmaple 25:
+import plotly.graph_objects as go
+
+# Define data
+months = ['Jan', 'Feb', 'Mar', 'Apr']
+sales = [100, 150, 200, 250]
+
+# Create figure
+fig = go.Figure(
+    data=go.Scatter(
+        x=months,
+        y=sales,
+        mode='lines+markers',
+        marker=dict(color='red')
+    )
+)
+
+# Update layout
+fig.update_layout(
+    title='Month Sales Record in 2024',
+    xaxis_title='Month',
+    yaxis_title='Sales'
+)
+
+# Show the figure
+fig.show()
+
+
+example 26:
+import pandas as p
+data={
+'score':[31,624,2,146,2,55]
+
+}
+df=p.DataFrame(data)
+dfmean=df['score'].mean()
+dfmedian=df['score'].median()
+dfmode=df['score'].mode()
+
+
+print(f"the ans is {dfmean}")
+print(f"the ans is {dfmedian}")
+print(f"the ans is {dfmode[0]}")
+
+
+example 27:
+data={
+    'score':[10,20,30,40,50]
+}
+df=p.DataFrame(data)
+range_value=df['score'].max()-df['score'].min()
+print(f"range is {range_value}")
+
+
+example 28:
+data={
+    'score':[10,20,30,40,50]
+}
+df=p.DataFrame(data)
+range_value=df['score'].max()-df['score'].min()
+varience_value=df['score'].var()
+std_value=df['score'].std()
+print(f"range is {range_value}")
+print(f"varience value is {varience_value}")
+print(f'standard daviation {std_value}')
+
+example 29:
+import matplotlib.pyplot as plt
+import numpy as np
+mean=0
+std_dev=1
+data=np.random.normal(mean,std_dev,1000)
+plt.hist(data,bins=30,density=True,alpha=.7,color='blue')
+plt.title('mean value')
+plt.xlabel('values')
+plt.ylabel('frequency')
+plt.show()
+
+example 30:
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import binom
+from scipy.stats import poisson
+
+
+n=10
+p=0.5
+
+x=np.arange(0,n+1)
+probabilities=binom.pmf(x,n,p)
+plt.bar(x,probabilities,color='green')
+plt.title('binomical destribution')
+plt.xlabel('number of success')
+plt.ylabel('probability')
+plt.show()
+
+example 31:
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import binom
+from scipy.stats import poisson
+
+lmda_pram=3
+
+x=np.arange(0,15)
+probabilities=poisson.pmf(x,lmda_pram)
+plt.bar(x,probabilities,color='purple')
+plt.title('poisson destribution')
+plt.xlabel('number of events')
+plt.ylabel('probability')
+plt.show()
